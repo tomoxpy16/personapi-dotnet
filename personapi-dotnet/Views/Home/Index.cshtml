@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<h1 class="mb-3">personapi-dotnet</h1>
+<p class="lead">Monolito ASP.NET Core MVC con patrón DAO sobre SQL Server.</p>
+
+<div class="row g-3">
+    @foreach (var (controlador, titulo, api) in new[]
+    {
+        ("Personas", "Personas", "/api/personas"),
+        ("Profesiones", "Profesiones", "/api/profesiones"),
+        ("Estudios", "Estudios", "/api/estudios"),
+        ("Telefonos", "Teléfonos", "/api/telefonos")
+    })
+    {
+        <div class="col-sm-6 col-lg-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">@titulo</h5>
+                    <p class="card-text small text-muted">REST: <code>@api</code></p>
+                    <a class="btn btn-primary btn-sm" asp-controller="@controlador" asp-action="Index">Administrar</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<p class="mt-4">La documentación de la API REST está en <a href="/swagger">/swagger</a>.</p>

@@ -1,0 +1,23 @@
+html {
+  font-size: 15px;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+.field-validation-error,
+.validation-summary-errors {
+  color: #dc3545;
+  font-size: 0.875rem;
+}
+
+.input-validation-error {
+  border-color: #dc3545;
+}
