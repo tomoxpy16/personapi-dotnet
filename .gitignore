@@ -1,0 +1,22 @@
+# Compilación
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+publish/
+*.user
+*.suo
+
+# Visual Studio / Rider / VS Code
+.vs/
+.idea/
+.vscode/
+*.swp
+
+# NuGet
+*.nupkg
+packages/
+
+# Otros
+*.log
+TestResults/
