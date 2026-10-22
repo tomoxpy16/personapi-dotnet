@@ -1,0 +1,17 @@
+# Alternativa a instalar SQL Server Express: SQL Server 2022 en Docker.
+# Si se usa esta opción, la cadena de conexión cambia (ver README, sección "Opción B").
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: personapi-sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Personapi#2025"
+      MSSQL_PID: "Express"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqldata:/var/opt/mssql
+
+volumes:
+  sqldata:
