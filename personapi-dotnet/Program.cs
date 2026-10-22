@@ -1,10 +1,16 @@
 using System.Reflection;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using personapi_dotnet.Models.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // MVC: controladores + vistas Razor (también sirve a los controladores REST con [ApiController]).
 builder.Services.AddControllersWithViews();
+
+// EF Core: el DbContext se registra con la cadena de conexión de appsettings.json.
+builder.Services.AddDbContext<PersonaDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("PersonaDb")));
 
 // Inyección de dependencias de los DAO: cada integrante registra aquí sus repositorios.
 // Scoped = una instancia por petición HTTP, igual que el DbContext.
