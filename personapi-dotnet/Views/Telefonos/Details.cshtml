@@ -1,0 +1,20 @@
+@model Telefono
+@{
+    ViewData["Title"] = "Detalle de teléfono";
+}
+
+<h1>Teléfono @Model.Num</h1>
+
+<dl class="row">
+    <dt class="col-sm-2">@Html.DisplayNameFor(m => m.Oper)</dt>
+    <dd class="col-sm-10">@Model.Oper</dd>
+    <dt class="col-sm-2">@Html.DisplayNameFor(m => m.Duenio)</dt>
+    <dd class="col-sm-10">
+        <a asp-controller="Personas" asp-action="Details" asp-route-id="@Model.Duenio">
+            @Model.Duenio - @Model.DuenioNavigation.Nombre @Model.DuenioNavigation.Apellido
+        </a>
+    </dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.Num" class="btn btn-primary">Editar</a>
+<a asp-action="Index" class="btn btn-link">Volver</a>

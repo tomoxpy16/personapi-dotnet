@@ -1,0 +1,29 @@
+@model Telefono
+@{
+    var esEdicion = ViewContext.RouteData.Values["action"]?.ToString() == "Edit";
+}
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<div class="mb-3">
+    <label asp-for="Num" class="form-label"></label>
+    @if (esEdicion)
+    {
+        <input asp-for="Num" class="form-control" readonly />
+    }
+    else
+    {
+        <input asp-for="Num" class="form-control" />
+    }
+    <span asp-validation-for="Num"></span>
+</div>
+<div class="mb-3">
+    <label asp-for="Oper" class="form-label"></label>
+    <input asp-for="Oper" class="form-control" />
+    <span asp-validation-for="Oper"></span>
+</div>
+<div class="mb-3">
+    <label asp-for="Duenio" class="form-label"></label>
+    <select asp-for="Duenio" asp-items="(SelectList)ViewData[nameof(Telefono.Duenio)]!" class="form-select"></select>
+    <span asp-validation-for="Duenio"></span>
+</div>

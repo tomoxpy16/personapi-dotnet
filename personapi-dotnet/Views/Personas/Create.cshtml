@@ -1,0 +1,16 @@
+@model Persona
+@{
+    ViewData["Title"] = "Nueva persona";
+}
+
+<h1>Nueva persona</h1>
+
+<form asp-action="Create" class="col-md-6">
+    <partial name="_Form" model="Model" />
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a asp-action="Index" class="btn btn-link">Volver</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

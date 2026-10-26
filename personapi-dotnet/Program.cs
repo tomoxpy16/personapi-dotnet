@@ -1,7 +1,9 @@
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using personapi_dotnet.Interfaces;
 using personapi_dotnet.Models.Entities;
+using personapi_dotnet.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,8 @@ builder.Services.AddDbContext<PersonaDbContext>(options =>
 
 // Inyección de dependencias de los DAO: cada integrante registra aquí sus repositorios.
 // Scoped = una instancia por petición HTTP, igual que el DbContext.
+builder.Services.AddScoped<IPersonaRepository, PersonaRepository>();
+builder.Services.AddScoped<ITelefonoRepository, TelefonoRepository>();
 
 // Swagger (OpenAPI 3) para documentar y probar los endpoints REST.
 builder.Services.AddEndpointsApiExplorer();
