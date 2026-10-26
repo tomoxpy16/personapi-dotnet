@@ -1,0 +1,16 @@
+@model Telefono
+@{
+    ViewData["Title"] = "Eliminar teléfono";
+}
+
+<h1>Eliminar teléfono</h1>
+
+<div class="alert alert-warning">
+    ¿Seguro que desea eliminar el teléfono <strong>@Model.Num</strong> (@Model.Oper)
+    de @Model.DuenioNavigation.Nombre @Model.DuenioNavigation.Apellido?
+</div>
+
+<form asp-action="Delete" asp-route-id="@Model.Num">
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-link">Cancelar</a>
+</form>
