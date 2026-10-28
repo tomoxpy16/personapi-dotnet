@@ -1,0 +1,29 @@
+@model Profesion
+@{
+    var esEdicion = ViewContext.RouteData.Values["action"]?.ToString() == "Edit";
+}
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<div class="mb-3">
+    <label asp-for="Id" class="form-label"></label>
+    @if (esEdicion)
+    {
+        <input asp-for="Id" class="form-control" readonly />
+    }
+    else
+    {
+        <input asp-for="Id" class="form-control" />
+    }
+    <span asp-validation-for="Id"></span>
+</div>
+<div class="mb-3">
+    <label asp-for="Nom" class="form-label"></label>
+    <input asp-for="Nom" class="form-control" />
+    <span asp-validation-for="Nom"></span>
+</div>
+<div class="mb-3">
+    <label asp-for="Des" class="form-label"></label>
+    <textarea asp-for="Des" class="form-control" rows="3"></textarea>
+    <span asp-validation-for="Des"></span>
+</div>

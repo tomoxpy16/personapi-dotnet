@@ -1,0 +1,36 @@
+@model Estudio
+@{
+    ViewData["Title"] = "Nuevo estudio";
+}
+
+<h1>Nuevo estudio</h1>
+
+<form asp-action="Create" class="col-md-6">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="CcPer" class="form-label"></label>
+        <select asp-for="CcPer" asp-items="(SelectList)ViewData[nameof(Estudio.CcPer)]!" class="form-select"></select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="IdProf" class="form-label"></label>
+        <select asp-for="IdProf" asp-items="(SelectList)ViewData[nameof(Estudio.IdProf)]!" class="form-select"></select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Univer" class="form-label"></label>
+        <input asp-for="Univer" class="form-control" />
+        <span asp-validation-for="Univer"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Fecha" class="form-label"></label>
+        <input asp-for="Fecha" class="form-control" />
+        <span asp-validation-for="Fecha"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a asp-action="Index" class="btn btn-link">Volver</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

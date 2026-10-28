@@ -1,0 +1,39 @@
+@model Estudio
+@{
+    ViewData["Title"] = "Editar estudio";
+}
+
+<h1>Editar estudio</h1>
+
+<form asp-action="Edit" class="col-md-6">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    @* La llave compuesta no se edita: viaja en campos de solo lectura. *@
+    <div class="row">
+        <div class="mb-3 col">
+            <label asp-for="CcPer" class="form-label"></label>
+            <input asp-for="CcPer" class="form-control" readonly />
+        </div>
+        <div class="mb-3 col">
+            <label asp-for="IdProf" class="form-label"></label>
+            <input asp-for="IdProf" class="form-control" readonly />
+        </div>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Univer" class="form-label"></label>
+        <input asp-for="Univer" class="form-control" />
+        <span asp-validation-for="Univer"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Fecha" class="form-label"></label>
+        <input asp-for="Fecha" class="form-control" />
+        <span asp-validation-for="Fecha"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+    <a asp-action="Index" class="btn btn-link">Volver</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
