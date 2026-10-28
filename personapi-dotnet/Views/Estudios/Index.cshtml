@@ -1,0 +1,37 @@
+@model IEnumerable<Estudio>
+@{
+    ViewData["Title"] = "Estudios";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>Estudios</h1>
+    <a class="btn btn-primary" asp-action="Create">Nuevo estudio</a>
+</div>
+
+<table class="table table-striped align-middle">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.CcPer)</th>
+            <th>@Html.DisplayNameFor(m => m.IdProf)</th>
+            <th>@Html.DisplayNameFor(m => m.Univer)</th>
+            <th>@Html.DisplayNameFor(m => m.Fecha)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var e in Model)
+        {
+            <tr>
+                <td>@e.CcPer - @e.CcPerNavigation.Nombre @e.CcPerNavigation.Apellido</td>
+                <td>@e.IdProfNavigation.Nom</td>
+                <td>@e.Univer</td>
+                <td>@e.Fecha?.ToString("yyyy-MM-dd")</td>
+                <td class="text-end text-nowrap">
+                    <a class="btn btn-sm btn-outline-secondary" asp-action="Details" asp-route-idProf="@e.IdProf" asp-route-ccPer="@e.CcPer">Ver</a>
+                    <a class="btn btn-sm btn-outline-primary" asp-action="Edit" asp-route-idProf="@e.IdProf" asp-route-ccPer="@e.CcPer">Editar</a>
+                    <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-idProf="@e.IdProf" asp-route-ccPer="@e.CcPer">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

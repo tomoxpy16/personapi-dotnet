@@ -18,6 +18,8 @@ builder.Services.AddDbContext<PersonaDbContext>(options =>
 // Scoped = una instancia por petición HTTP, igual que el DbContext.
 builder.Services.AddScoped<IPersonaRepository, PersonaRepository>();
 builder.Services.AddScoped<ITelefonoRepository, TelefonoRepository>();
+builder.Services.AddScoped<IProfesionRepository, ProfesionRepository>();
+builder.Services.AddScoped<IEstudioRepository, EstudioRepository>();
 
 // Swagger (OpenAPI 3) para documentar y probar los endpoints REST.
 builder.Services.AddEndpointsApiExplorer();

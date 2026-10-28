@@ -1,0 +1,20 @@
+@model Estudio
+@{
+    ViewData["Title"] = "Detalle de estudio";
+}
+
+<h1>Detalle de estudio</h1>
+
+<dl class="row">
+    <dt class="col-sm-2">@Html.DisplayNameFor(m => m.CcPer)</dt>
+    <dd class="col-sm-10">@Model.CcPer - @Model.CcPerNavigation.Nombre @Model.CcPerNavigation.Apellido</dd>
+    <dt class="col-sm-2">@Html.DisplayNameFor(m => m.IdProf)</dt>
+    <dd class="col-sm-10">@Model.IdProf - @Model.IdProfNavigation.Nom</dd>
+    <dt class="col-sm-2">@Html.DisplayNameFor(m => m.Univer)</dt>
+    <dd class="col-sm-10">@(Model.Univer ?? "-")</dd>
+    <dt class="col-sm-2">@Html.DisplayNameFor(m => m.Fecha)</dt>
+    <dd class="col-sm-10">@(Model.Fecha?.ToString("yyyy-MM-dd") ?? "-")</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-idProf="@Model.IdProf" asp-route-ccPer="@Model.CcPer" class="btn btn-primary">Editar</a>
+<a asp-action="Index" class="btn btn-link">Volver</a>
